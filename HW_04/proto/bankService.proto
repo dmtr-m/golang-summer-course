@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option go_package = "gRPCProject/proto";
+
+service BankAccountService {
+  rpc CreateAccount(CreateAccountRequest) returns (CreateAccountResponse) {}
+  rpc DeleteAccount(DeleteAccountRequest) returns (DeleteAccountResponse) {}
+  rpc ChangeAccountName(ChangeAccountNameRequest)
+      returns (ChangeAccountNameResponse) {}
+  rpc ChangeAccountBalance(ChangeAccountBalanceRequest)
+      returns (ChangeAccountBalanceResponse) {}
+  rpc GetAccount(GetAccountRequest) returns (GetAccountResponse) {}
+}
+
+message CreateAccountRequest {
+  string name = 1;
+  int64 amount = 2;
+}
+
+message CreateAccountResponse { string message = 1; }
+
+message DeleteAccountRequest { string name = 1; }
+
+message DeleteAccountResponse { string message = 1; }
+
+message ChangeAccountNameRequest {
+  string name = 1;
+  string new_name = 2;
+}
+
+message ChangeAccountNameResponse { string message = 1; }
+
+message ChangeAccountBalanceRequest {
+  string name = 1;
+  int64 amount = 2;
+}
+
+message ChangeAccountBalanceResponse { string message = 1; }
+
+message GetAccountRequest {
+  string name = 1;
+  int64 amount = 2;
+}
+
+message GetAccountResponse { string message = 1; }
